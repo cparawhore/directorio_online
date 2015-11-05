@@ -29,7 +29,7 @@
                 		<strong><?php echo $mensaje.'<br>'; ?></strong>
                 		<?php
                 	endforeach;?>
-                		No se preocupe, si lo ha hecho correctamente su anuncio sera publicado. <a href="/proyecto_barranca/inmueble/">Volver a inmuebles</a>
+                		No se preocupe, si lo ha hecho correctamente su anuncio sera publicado. <a href="/inmueble/">Volver a inmuebles</a>
                 	</div>
                 	<?php
                 }
