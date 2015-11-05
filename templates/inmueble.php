@@ -16,13 +16,13 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container">
-		<a href="/proyecto_barranca/inmueble/agregar"><button type="button" class="btn btn-warning">AGREGAR INMUEBLE</button></a></br></br>
+		<a href="/inmueble/agregar"><button type="button" class="btn btn-warning">AGREGAR INMUEBLE</button></a></br></br>
 		<!--plantilla-->
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-4">
                         <div class="thumbnail">
-                            <img src=<?php echo "/proyecto_barranca/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            <img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
@@ -75,7 +75,7 @@
 					<?php if(isset($array_dividida[1])){ foreach ( $array_dividida[1] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-4">
                         <div class="thumbnail">
-                            <img src=<?php echo "/proyecto_barranca/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            <img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
@@ -103,8 +103,8 @@
 				<!--li><a href="#">&laquo;</a></li-->
 				<?php
 					for($i=0; $i<ceil($var/8); $i++){
-						if(isset($numpage) && $num_page==$i) echo '<li class="active"><a href="/proyecto_barranca/inmueble/page/'.$i.'">'.$i.'</a></li>';
-						else echo '<li><a href="/proyecto_barranca/inmueble/page/'.$i.'">'.$i.'</a></li>';
+						if(isset($numpage) && $num_page==$i) echo '<li class="active"><a href="/inmueble/page/'.$i.'">'.$i.'</a></li>';
+						else echo '<li><a href="/inmueble/page/'.$i.'">'.$i.'</a></li>';
 					}
 				?>
 				<!--li><a href="#">&raquo;</a></li-->
