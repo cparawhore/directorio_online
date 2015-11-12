@@ -10,10 +10,10 @@
     <title>Directorio Barranca</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/animate.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
     <link href="css/style.css" rel="stylesheet">
