@@ -46,7 +46,8 @@ $app->post("/inmueble/agregar", function() use($app)
 		$dni = $app->request->post("dni");
 		$ver = 0;
 		$pub = 0;
-		$nom_img = $_FILES['img']['name'];
+		$nom_img = rand(0, 9).rand(0, 9) . $_FILES['img']['name'];
+		$nom_img_post = $nom_img;
 		if($tit == '' || $tip_ven == '' || $tip_inm == '') $mensajes[] = "Falta llenar los datos mas importantes";
 		if ($_FILES["img"]["error"] > 0){
 			$mensajes[] = "Al parecer usted no ha subido ninguna imagen";
@@ -90,7 +91,7 @@ $app->post("/inmueble/agregar", function() use($app)
 			$dbh->bindParam(5, $cel1);
 			$dbh->bindParam(6, $cel2);
 			$dbh->bindParam(7, $tit);
-			$dbh->bindParam(8, $nom_img);
+			$dbh->bindParam(8, $nom_img_post);
 			$dbh->bindParam(9, $ver);
 			$dbh->bindParam(10, $nom_us);
 			$dbh->bindParam(11, $dni);
