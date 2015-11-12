@@ -4,6 +4,16 @@
 	?>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=1514921235499134";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<!-- Preloader -->
 	<div id="preloader">
 	  <div id="load"></div>
@@ -15,63 +25,11 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container">
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
+		
         <div class="row">
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<a href="empleo"><img src="img/icons/ser_tra.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Empleo</h5></a>
-						<p>Encuentra lista de empleos rapidamente en el distrito que te encuentres.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<a href="alquiler"><img src="img/icons/ser_ter.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Alquiler</h5></a>
-						<p>Alquiler de departamentos, cuartos, locales comerciales, etc.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<a href="terrenos"><img src="img/icons/ser_prod.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Terrenos</h5></a>
-						<p>Compra de terrenos, casas, departamentos.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-            <div class="col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<a href="prod"><img src="img/icons/ser_pro.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Productos y Servicios</h5></a>
-						<p>Venda sus productos nuevos, ofrezca sus servicios, precios y ubicacion.</p>
-					</div>
-                </div>
-				</div>
+            <div class="col-sm-12 col-md-12">
+            	<h4>Comenta que te gustaria ver o cambiar en esta pagina</h4>
+				<div class="fb-comments" data-href="http://directoriobarranca.azurewebsites.net/aconsejanos" data-width="750" data-numposts="20"></div>
             </div>
         </div>		
 		</div>
