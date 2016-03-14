@@ -5,7 +5,7 @@
 {
 });*/
 
-$app->get("/inmueble/agregar", function() use($app)
+$app->get("/christian08", function() use($app)
 {
 	try{
     	$app->render('crear-inmueble.php');
@@ -16,7 +16,7 @@ $app->get("/inmueble/agregar", function() use($app)
 	}
 });
 
-$app->post("/inmueble/agregar", function() use($app)
+$app->post("/christian08", function() use($app)
 {
 	try{
 		$mensajes = array();
