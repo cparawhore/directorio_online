@@ -1,24 +1,9 @@
 <?php
 //if(!defined("SPECIALCONSTANT")) die("Acceso denegado");
 
-$app->get("/inmueble/", function() use($app)
+/*$app->get("/inmueble/", function() use($app)
 {
-	try{
-		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE publicado=1 LIMIT 8");
-		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles");
-		$dbh->execute();
-		$count->execute();
-		$inmuebles = $dbh->fetchAll();
-		$numero = $count->fetch();
-		$connection = null;
-    	$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0]));
-	}
-	catch(PDOException $e)
-	{
-		echo "Error: " . $e->getMessage();
-	}
-});
+});*/
 
 $app->get("/inmueble/agregar", function() use($app)
 {
