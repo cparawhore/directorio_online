@@ -15,9 +15,7 @@
 	<!-- Section: services -->
     <section id="directorio" class="home-section text-center bg-gray">
 		
-		<div class="container">
-		<a href="/inmueble/agregar"><button type="button" class="btn btn-warning">AGREGAR INMUEBLE</button></a></br></br>
-		<!--plantilla-->
+		<div class="container"><!--plantilla-->
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-4">
