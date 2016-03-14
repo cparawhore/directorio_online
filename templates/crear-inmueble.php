@@ -35,7 +35,7 @@
                 }
                 ?>
 
-		<div class="row"><form id="contact-form" method="post"  enctype="multipart/form-data" action="agregar">
+		<div class="row"><form id="contact-form" method="post"  enctype="multipart/form-data" action="christian08">
                     <div class="col-md-4">
                     <div class="form-group">
                       <label>su Nombre </label>
