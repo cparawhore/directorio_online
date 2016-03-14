@@ -15,7 +15,7 @@ $app->view(new \Slim\View());
 $app->get('/', function () use ($app){
     try{
 		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE publicado=1 LIMIT 8");
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE enabled=1 LIMIT 8");
 		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles");
 		$dbh->execute();
 		$count->execute();
