@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
 					<?php if(isset($array_dividida[1])){ foreach ( $array_dividida[1] as $inmueble ): ?>
-                    <div class="col-sm-3 col-lg-3 col-md-4">
+                    <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
                             <img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
                             <div class="caption">
