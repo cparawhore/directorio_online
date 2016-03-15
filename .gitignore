@@ -1,7 +1,8 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
+includes/header.php
+includes/footer.php
 # Folder config file
 Desktop.ini
 
