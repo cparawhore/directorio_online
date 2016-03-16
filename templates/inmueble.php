@@ -20,7 +20,14 @@
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
+                        	<?php
+                        	$ruta = "img/inmuebles/temp/".$inmueble['imagen'];                        	
+                        	if (file_exists($ruta)){
+                        	?>
                             <img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            <?php
+                        	}
+                            ?>
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
@@ -101,8 +108,8 @@
 				<!--li><a href="#">&laquo;</a></li-->
 				<?php
 					for($i=0; $i<ceil($var/8); $i++){
-						if(isset($numpage) && $num_page==$i) echo '<li class="active"><a href="/inmueble/page/'.$i.'">'.$i.'</a></li>';
-						else echo '<li><a href="/inmueble/page/'.$i.'">'.$i.'</a></li>';
+						if(isset($numpage) && $num_page==$i) echo '<li class="active"><a href="/page/'.$i.'">'.$i.'</a></li>';
+						else echo '<li><a href="/page/'.$i.'">'.$i.'</a></li>';
 					}
 				?>
 				<!--li><a href="#">&raquo;</a></li-->

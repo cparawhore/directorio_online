@@ -2,13 +2,81 @@
 //if(!defined("SPECIALCONSTANT")) die("Acceso denegado");
 
 /*$app->get("/inmueble/", function() use($app)
-{
+{#!8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA
 });*/
+
+
+
+$app->get("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() use($app)
+{
+	try{
+		/*if(!isset($_SESSION["user"])){
+			ob_start();
+	    header("Location:/"); echo 'asdsa';
+	    exit();}*/
+	    if(!isset($_SESSION["token"])){
+	    		$app->render('login.php');
+	    }
+	else{
+	    if($_SESSION["token"] == '9ho1DTBL!ez8HoC-LS4lxNcBMMUtcsTZahYFX6dGGJCWNiwlMWAo')
+    	{
+	    	$app->render('crear-inmueble.php');echo $_SESSION["token"];
+	    }
+    }
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->post("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() use($app)
+{
+	try{
+		session_start();
+		$user = $app->request->post("use");
+		$pass = md5($app->request->post("password"));
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT pass FROM acmin WHERE user='".$user."'");
+		$dbh->execute();
+		$data = $dbh->fetchAll();
+		if($data[0]["pass"] == $pass){
+			$_SESSION["token"] = '9ho1DTBL!ez8HoC-LS4lxNcBMMUtcsTZahYFX6dGGJCWNiwlMWAo';
+			ob_start();
+			header("Location:/christian08"); 
+	    	exit();
+		}
+		else{
+			ob_start();header("Location:/");exit();
+		}
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
 
 $app->get("/christian08", function() use($app)
 {
 	try{
-    	$app->render('crear-inmueble.php');
+		session_start();
+		 if(isset($_SESSION["token"])){
+			if($_SESSION["token"] == '9ho1DTBL!ez8HoC-LS4lxNcBMMUtcsTZahYFX6dGGJCWNiwlMWAo'){
+    			$app->render('crear-inmueble.php');
+    		}
+    	}
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->get("/logout", function() use($app)
+{
+	try{
+		session_start();
+		session_destroy();echo "Deslogeado!!";
 	}
 	catch(PDOException $e)
 	{
@@ -27,8 +95,6 @@ $app->post("/christian08", function() use($app)
 		$are = $app->request->post("are");
 		$cel1 = $app->request->post("cel1");
 		$cel2 = $app->request->post("cel2");
-		$nom_us = $app->request->post("nom_us");
-		$dni = $app->request->post("dni");
 		$ver = 0;
 		$pub = 0;
 		$nom_img = rand(0, 9).rand(0, 9) . $_FILES['img']['name'];
@@ -68,7 +134,7 @@ $app->post("/christian08", function() use($app)
 			}
 			}
 			$connection = getConnection();
-			$dbh = $connection->prepare("INSERT INTO inmuebles VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?,?,?,?)");
+			$dbh = $connection->prepare("INSERT INTO inmuebles (tipo, tipo_in, ubicacion, area, cel, cel2, titulo,imagen, created_at, verificado, enabled) VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?,?)");
 			$dbh->bindParam(1, $tip_ven);
 			$dbh->bindParam(2, $tip_inm);
 			$dbh->bindParam(3, $ubi);
@@ -78,14 +144,33 @@ $app->post("/christian08", function() use($app)
 			$dbh->bindParam(7, $tit);
 			$dbh->bindParam(8, $nom_img_post);
 			$dbh->bindParam(9, $ver);
-			$dbh->bindParam(10, $nom_us);
-			$dbh->bindParam(11, $dni);
-			$dbh->bindParam(12, $pub);
+			$dbh->bindParam(10, $pub);
 			$dbh->execute();
 			//$bookId = $connection->lastInsertId();
 			$connection = null;
 			$app->render("crear-inmueble.php", array('mensajes'=> $mensajes));
 		//$app->render('crear-inmueble.php');
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+
+
+$app->get('/page/:id', function ($id) use ($app){
+    try{
+		$connection = getConnection();
+		$desde = $id*8;
+		$dbh = $connection->prepare("SELECT * FROM inmuebles LIMIT ".$desde.",8");// WHERE enabled=1 AND curdate() - created_at < 60 LIMIT 8");
+		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles");
+		$dbh->execute();
+		$count->execute();
+		$inmuebles = $dbh->fetchAll();
+		$numero = $count->fetch();
+		$connection = null;
+    	$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0]));
 	}
 	catch(PDOException $e)
 	{

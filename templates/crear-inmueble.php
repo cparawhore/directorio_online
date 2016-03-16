@@ -1,8 +1,8 @@
 
 <?php
 	include ("includes/header.php");
-	?>
 
+?>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!-- Preloader -->
 	<!--div id="preloader">
@@ -13,7 +13,6 @@
 	?>
 	<!-- Section: services -->
     <section id="directorio" class="home-section text-center bg-gray">
-		
 		<div class="container">
 		<!--plantilla-->
 		<?php if(!isset($mensajes)) { ?>
@@ -38,14 +37,6 @@
 		<div class="row"><form id="contact-form" method="post"  enctype="multipart/form-data" action="christian08">
                     <div class="col-md-4">
                     <div class="form-group">
-                      <label>su Nombre </label>
-					  <input type="text" class="form-control" placeholder="Nombre" name="nom_us" autocomplete="off">
-					</div>
-					<div class="form-group">
-                      <label>su DNI </label>
-					  <input type="text" class="form-control" placeholder="DNI" name="dni" autocomplete="off">
-					</div>
-                    <div class="form-group">
                       <label>Titulo del aviso / anuncio</label>
 					  <input type="text" class="form-control" placeholder="Lo que publica" name="tit" autocomplete="off">
 					</div>
@@ -55,23 +46,21 @@
 
 
 					<div class="form-group">
-                      <label>Venta o Alquiler</label>
-					  <select class="form-control" name="tip_ven">
+                      <label>Opcion</label>
+					  <select id="opciones" class="form-control" name="tip_ven">
 						  <option value="Venta">Venta</option>
 						  <option value="Alquiler">Alquiler</option>
-						  <option value="Otros">Otros</option>
-
+						  <option value="Trabajo">Trabajo</option>
 					</select>
 					</div>
 
-					<div class="form-group">
-                      <label>Tipo de Inmueble</label>
-					  <select class="form-control" name="tip_inm">
+					<div class="form-group" >
+                      <label>Subopcion</label><div id="nuevoInput"></div>
+					  <select class="form-control" id="subopciones" name="tip_inm">
 						  <option value="Terreno">Terreno</option>
 						  <option value="Casa">Casa</option>
 						  <option value="Departamento">Departamento</option>
 						  <option value="Local Comercial">Local Comercial</option>
-						  <option value="Otros">Otros</option>
 					</select>
 					</div>
 					<div class="form-group">
@@ -128,7 +117,32 @@
 <?php
 include ("includes/footer.php");
 	?>
+<script>
+ $(document).ready(function(){
+ 	function cambiar(index){
+ 		/*var newOptions = {"Option 1": "value1",
+		  "Option 2": "value2",
+		  "Option 3": "value3"
+		};*/
+		
+		var $el = $("#subopciones");
+		 // 2 = Trabajo
+		if(index == 2){
+			/*$el.empty();
+				$.each(newOptions, function(value,key) {
+			  		$el.append($("<option></option>")
+			    	 .attr("value", value).text(key));
+			});*/
+			$("#subopciones").remove();
+			$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
+		}
+ 	}
 
+    $("#opciones").change(function(){
+		cambiar($("#opciones")[0].selectedIndex);
+	});
+});
+</script>
 </body>
 
 </html>
