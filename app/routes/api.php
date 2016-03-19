@@ -40,7 +40,7 @@ $app->post("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() u
 		$dbh = $connection->prepare("SELECT pass FROM acmin WHERE user='".$user."'");
 		$dbh->execute();
 		$data = $dbh->fetchAll();
-		if($data[0]["pass"] == $pass){
+		if(isset($data[0]) && $data[0]["pass"] == $pass){
 			$_SESSION["token"] = '9ho1DTBL!ez8HoC-LS4lxNcBMMUtcsTZahYFX6dGGJCWNiwlMWAo';
 			ob_start();
 			header("Location:/christian08"); 

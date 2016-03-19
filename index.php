@@ -30,6 +30,20 @@ $app->get('/', function () use ($app){
 	}
 });
 
+$app->get('/lista', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE enabled=1 AND curdate() - created_at < 60");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
 
 $app->get('/aconsejanos', function () use ($app){
     $app->render('aconseja.php');
