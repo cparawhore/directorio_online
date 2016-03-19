@@ -30,8 +30,13 @@
                             ?>
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
-                                <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
-                                <b>Ubicacion:</b> <?php echo $inmueble['ubicacion'] ?><br>
+                                <p><b>Tipo:</b> <?php echo $inmueble['tipo']." - ".$inmueble['tipo_in'] ?><br>
+
+                                <?php if($inmueble['tipo']=='Trabajo') {?>
+                                <b>Descripcion:</b> 
+                                <?php } else {?><b>Ubicacion:</b> <?php } ?>
+                                <?php echo $inmueble['ubicacion'] ?><br>
+
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " - ".$inmueble['cel2'];

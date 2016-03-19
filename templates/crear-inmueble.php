@@ -64,7 +64,7 @@
 					</select>
 					</div>
 					<div class="form-group">
-                      <label>Ubicacion</label>
+                      <label>Ubicacion / Descripcion</label>
 					  <textarea class="form-control" rows="3" name="ubi"></textarea>
 					</div>
 
