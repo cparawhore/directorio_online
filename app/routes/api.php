@@ -60,10 +60,13 @@ $app->get("/christian08", function() use($app)
 {
 	try{
 		session_start();
-		 if(isset($_SESSION["token"])){
+		if(isset($_SESSION["token"])){
 			if($_SESSION["token"] == '9ho1DTBL!ez8HoC-LS4lxNcBMMUtcsTZahYFX6dGGJCWNiwlMWAo'){
     			$app->render('crear-inmueble.php');
     		}
+    	}
+    	else{
+    		ob_start();header("Location:/");exit();
     	}
 	}
 	catch(PDOException $e)
@@ -76,7 +79,7 @@ $app->get("/logout", function() use($app)
 {
 	try{
 		session_start();
-		session_destroy();echo "Deslogeado!!";
+		session_destroy();ob_start();header("Location:/");exit();
 	}
 	catch(PDOException $e)
 	{

@@ -13,8 +13,10 @@
 	?>
 	<!-- Section: services -->
     <section id="directorio" class="home-section text-center bg-gray">
-		<div class="container">
+    	<div class="row"></div>
+		<div class="container"><a href="/logout"><button type="button" class="btn btn-danger pull-right">Salir</button></a>
 		<!--plantilla-->
+
 		<?php if(!isset($mensajes)) { ?>
 		<div class="alert alert-info">
                     <strong>Atencion!</strong> Tu nombre y DNI <strong>NO</strong> seran publicados.
@@ -46,7 +48,7 @@
 
 
 					<div class="form-group">
-                      <label>Opcion</label>
+                      <label>Tipo de Anuncio</label>
 					  <select id="opciones" class="form-control" name="tip_ven">
 						  <option value="Venta">Venta</option>
 						  <option value="Alquiler">Alquiler</option>
@@ -55,7 +57,7 @@
 					</div>
 
 					<div class="form-group" >
-                      <label>Subopcion</label><div id="nuevoInput"></div>
+                      <label>Especificacion</label><div id="nuevoInput"></div>
 					  <select class="form-control" id="subopciones" name="tip_inm">
 						  <option value="Terreno">Terreno</option>
 						  <option value="Casa">Casa</option>
@@ -70,7 +72,7 @@
 
 					<div class="form-group">
                       <label>Area</label><div class="input-group">
-					  <input type="text" class="form-control" placeholder="" name="are" autocomplete="off"><span class="input-group-addon">m<sup>2</sup></span></div>
+					  <input type="text" class="form-control" placeholder="" name="are" autocomplete="off" value="0"><span class="input-group-addon">m<sup>2</sup></span></div>
 					</div>
 
 					</div>
@@ -78,12 +80,12 @@
 
 					<div class="form-group">
                       <label>Celular nº1</label><div class="input-group">
-					  <input type="text" class="form-control" placeholder="" name="cel1" autocomplete="off"><span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span></div>
+					  <input type="text" class="form-control" placeholder="" name="cel1" autocomplete="off" value="0"><span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span></div>
 					</div>
 
 					<div class="form-group">
                       <label>Celular nº2</label><div class="input-group">
-					  <input type="text" class="form-control" placeholder="" name="cel2" autocomplete="off"><span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span></div>
+					  <input type="text" class="form-control" placeholder="" name="cel2" autocomplete="off" value="0"><span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span></div>
 					</div>
 
 					<div class="form-group">
