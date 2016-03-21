@@ -8,9 +8,7 @@
  *
  * Date: Tue Jan 02 2014
  */
-th a {
-  color: #fff;
-}
+
 th a:hover {
   color: #fff;
   text-decoration: underline;
