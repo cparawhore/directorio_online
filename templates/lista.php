@@ -2,6 +2,13 @@
 <?php
 	include ("includes/header.php");
 	?>
+	
+
+<script>
+function cambiacolor_over(celda){ celda.style.backgroundColor="#ff0000" } 
+function cambiacolor_out(celda){ celda.style.backgroundColor="#ffffff" }
+</script>
+
 <link href="css/jquery.dynatable.css" rel="stylesheet" type="text/css">
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!-- Preloader -->
@@ -26,7 +33,7 @@
 					<tbody>
 						<?php foreach($array as $inmu)
 						{
-						echo "<tr><td>".$inmu['titulo']."</td><td>".$inmu['tipo']."</td><td>".$inmu['tipo_in']."</td><td>".$inmu['ubicacion']."</td><td>".$inmu['cel']."</td><td>".$inmu['cel2']."</td></tr>";
+						echo "<tr onmouseover='cambiacolor_over(this)' onmouseout='cambiacolor_out(this)'><td>".$inmu['titulo']."</td><td>".$inmu['tipo']."</td><td>".$inmu['tipo_in']."</td><td>".$inmu['ubicacion']."</td><td>".$inmu['cel']."</td><td>".$inmu['cel2']."</td></tr>";
 						}
 						?>
 					</tbody>
