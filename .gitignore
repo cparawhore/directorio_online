@@ -1,7 +1,8 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
+includes/header.php
+includes/footer.php
 # Folder config file
 Desktop.ini
 
@@ -41,3 +42,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+includes/footer.php
+includes/footer.php
+includes/footer.php
