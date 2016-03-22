@@ -713,13 +713,13 @@
 
       if (recordsShown < recordsQueryCount && settings.features.paginate) {
         var bounds = obj.records.pageBounds();
-        text += "<span class='dynatable-record-bounds'>" + (bounds[0] + 1) + " to " + bounds[1] + "</span> of ";
+        text += "<span class='dynatable-record-bounds'>" + (bounds[0] + 1) + " a " + bounds[1] + "</span> de ";
       } else if (recordsShown === recordsQueryCount && settings.features.paginate) {
-        text += recordsShown + " of ";
+        text += recordsShown + " de ";
       }
       text += recordsQueryCount + " " + collection_name;
       if (recordsQueryCount < recordsTotal) {
-        text += " (filtered from " + recordsTotal + " total records)";
+        text += " (filtrado de " + recordsTotal + " resultados totales)";
       }
 
       return $('<span></span>', {

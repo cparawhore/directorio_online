@@ -4,10 +4,6 @@
 	?>
 	
 
-<script>
-function cambiacolor_over(celda){ celda.style.backgroundColor="#ff0000" } 
-function cambiacolor_out(celda){ celda.style.backgroundColor="#ffffff" }
-</script>
 
 <link href="css/jquery.dynatable.css" rel="stylesheet" type="text/css">
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -20,14 +16,23 @@ function cambiacolor_out(celda){ celda.style.backgroundColor="#ffffff" }
 	$array = $inmuebles;
 	?>
 	<!-- Section: services -->
-    <section id="directorio" class="home-section text-center bg-gray">
+    <section id="directorio" class="home-section text-center bg-white">
 		
 		<div class="container"><!--plantilla-->
 		<div class="row">
 			<div class="col-md-2">
+			<div class="list-group">
+                            <a href="/lista" class="list-group-item active">Menos de 2 meses</a>
+                            <a href="/lista_todo" class="list-group-item">Todos los anuncios</a>
+                            <a href="/inmobiliaria" class="list-group-item">Terrenos/Cuartos/Locales</a>
+                            <a href="/lista?pagina=1&queries[search]=trabajo" class="list-group-item">Trabajos</a>
+                            <a href="/lista?pagina=1&queries[search]=publicidad" class="list-group-item">Publicidad</a>
+                            <a href="/lista?pagina=1&queries[search]=mascotas" class="list-group-item">Mascotas</a>
+                            <a href="/vatodo" class="list-group-item">Venta y Alquiler de Todo</a>
+                        </div>
 			</div>
 			<div class="col-md-8">
-				<table id="jsonTable" class="table table-striped table-bordered">
+				<table id="jsonTable" class="table table-hover table-bordered">
 					<thead><th>Titulo</th><th>Tipo de Anuncio</th><th>Especificacion</th><th>Descripcion</th><th>Telefono #1</th><th>Telefono #2</th>
 					</thead>
 					<tbody>
