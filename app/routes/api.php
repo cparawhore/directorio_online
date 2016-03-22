@@ -6,7 +6,6 @@
 });*/
 
 
-
 $app->get("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() use($app)
 {
 	try{
@@ -99,7 +98,7 @@ $app->post("/christian08", function() use($app)
 		$cel1 = $app->request->post("cel1");
 		$cel2 = $app->request->post("cel2");
 		$ver = 0;
-		$pub = 0;
+		$pub = 1;
 		$nom_img = rand(0, 9).rand(0, 9) . $_FILES['img']['name'];
 		$nom_img_post = $nom_img;
 		if($tit == '' || $tip_ven == '' || $tip_inm == '') $mensajes[] = "Falta llenar los datos mas importantes";

@@ -63,6 +63,7 @@
 						  <option value="Casa">Casa</option>
 						  <option value="Departamento">Departamento</option>
 						  <option value="Local Comercial">Local Comercial</option>
+						  <option value="Easter">Cambiar!</option>
 					</select>
 					</div>
 					<div class="form-group">
@@ -116,9 +117,7 @@
 
 	<!-- Section: contact -->
     
-<?php
-include ("includes/footer.php");
-	?>
+
 <script>
  $(document).ready(function(){
  	function cambiar(index){
@@ -139,12 +138,23 @@ include ("includes/footer.php");
 			$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
 		}
  	}
+ 	function cambiarS(index){var $el = $("#subopciones");
+		if(index == 4){
+			$("#subopciones").remove();
+			$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
+		}
+ 	}
 
     $("#opciones").change(function(){
 		cambiar($("#opciones")[0].selectedIndex);
 	});
+	$("#subopciones").change(function(){
+		cambiarS($("#subopciones")[0].selectedIndex);
+	});
 });
 </script>
 </body>
-
+<?php
+include ("includes/footer.php");
+	?>
 </html>
