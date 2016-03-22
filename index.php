@@ -12,6 +12,10 @@ $app->config(array(
 
 $app->view(new \Slim\View());
 
+$app->error(function (\Exception $e) use ($app) {
+    $app->render('error.php');
+});
+
 $app->get('/', function () use ($app){
     try{
 		$connection = getConnection();
