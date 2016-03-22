@@ -117,9 +117,7 @@
 
 	<!-- Section: contact -->
     
-<?php
-include ("includes/footer.php");
-	?>
+
 <script>
  $(document).ready(function(){
  	function cambiar(index){
@@ -156,5 +154,7 @@ include ("includes/footer.php");
 });
 </script>
 </body>
-
+<?php
+include ("includes/footer.php");
+	?>
 </html>
