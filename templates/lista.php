@@ -60,5 +60,5 @@ include ("includes/footer.php");
 
 </body>
 <script src="js/jquery.dynatable.js"></script>
-
+<script type="text/javascript">$('#jsonTable').dynatable();</script>
 </html>

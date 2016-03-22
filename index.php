@@ -33,6 +33,84 @@ $app->get('/', function () use ($app){
 		echo "Error: " . $e->getMessage();
 	}
 });
+$app->get('/contacto', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE curdate() - created_at < 60");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->get('/lista', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE curdate() - created_at < 60");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->get('/lista_todo', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->get('/inmobiliaria', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE tipo_in='Terreno' OR tipo_in='Casa' OR tipo_in='Departamento' OR tipo_in='Local Comercial'");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
+$app->get('/vatodo', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE tipo='Venta' OR tipo='Alquiler'");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+$app->get('/aconsejanos', function () use ($app){
+    $app->render('aconseja.php');
+});
+
 
 $app->run();
 ?>

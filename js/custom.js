@@ -1,4 +1,4 @@
-$('#jsonTable').dynatable();
+
 	var path = window.location.pathname;
 	var pathQ = window.location.pathname+window.location.search;
 	if(path == "/lista"){
