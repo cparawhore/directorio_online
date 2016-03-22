@@ -20,18 +20,18 @@
 		
 		<div class="container"><!--plantilla-->
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-3">
 			<div class="list-group">
-                            <a href="/lista" class="list-group-item active">Menos de 2 meses</a>
-                            <a href="/lista_todo" class="list-group-item">Todos los anuncios</a>
-                            <a href="/inmobiliaria" class="list-group-item">Terrenos/Cuartos/Locales</a>
-                            <a href="/lista?pagina=1&queries[search]=trabajo" class="list-group-item">Trabajos</a>
-                            <a href="/lista?pagina=1&queries[search]=publicidad" class="list-group-item">Publicidad</a>
-                            <a href="/lista?pagina=1&queries[search]=mascotas" class="list-group-item">Mascotas</a>
-                            <a href="/vatodo" class="list-group-item">Venta y Alquiler de Todo</a>
+                            <a href="/lista" class="list-group-item" id="lgi0">Menos de 2 meses</a>
+                            <a href="/lista_todo" class="list-group-item" id="lgi1">Todos los anuncios</a>
+                            <a href="/inmobiliaria" class="list-group-item" id="lgi2">Terrenos/Cuartos/Locales</a>
+                            <a href="/lista?pagina=1&queries[search]=trabajo" class="list-group-item" id="lgi3">Trabajos</a>
+                            <a href="/lista?pagina=1&queries[search]=publicidad" class="list-group-item" id="lgi4">Publicidad</a>
+                            <a href="/lista?pagina=1&queries[search]=mascotas" class="list-group-item" id="lgi5">Mascotas</a>
+                            <a href="/vatodo" class="list-group-item" id="lgi6">Venta y Alquiler de Todo</a>
                         </div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<table id="jsonTable" class="table table-hover table-bordered">
 					<thead><th>Titulo</th><th>Tipo de Anuncio</th><th>Especificacion</th><th>Descripcion</th><th>Telefono #1</th><th>Telefono #2</th>
 					</thead>
@@ -43,8 +43,6 @@
 						?>
 					</tbody>
 				</table>
-			</div>
-			<div class="col-md-2">
 			</div>
 		</div>
 
@@ -64,5 +62,40 @@ include ("includes/footer.php");
 <script src="js/jquery.dynatable.js"></script>
 <script>
 	$('#jsonTable').dynatable();
+	var path = window.location.pathname;
+	var pathQ = window.location.pathname+window.location.search;
+	if(path == "/lista"){
+		if(pathQ.indexOf("trabajo")!=-1){
+				$('#lgi3').addClass('active');
+			}
+			else{
+				if(pathQ.indexOf("publicidad")!=-1){
+					$('#lgi4').addClass('active');
+				}
+				else{
+					if(pathQ.indexOf("mascotas")!=-1){
+						$('#lgi5').addClass('active');
+					}
+					else{
+						$('#lgi0').addClass('active');
+					}
+				}
+			}		
+	}
+	else{
+		if(path == "/lista_todo"){
+			$('#lgi1').addClass('active');			
+		}
+		else{
+			if(path == "/inmobiliaria"){
+				$('#lgi2').addClass('active');
+			}
+			else{
+				if(path == "/vatodo"){
+					$('#lgi6').addClass('active');
+				}
+			}
+		}
+	}
 </script>
 </html>
