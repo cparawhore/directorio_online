@@ -32,7 +32,7 @@
                         </div>
 			</div>
 			<div class="col-md-9">
-				<table id="jsonTable" class="table table-hover table-striped table-bordered">
+				<table id="jsonTable" class="table table-hover table-bordered">
 					<thead><th>Titulo</th><th>Tipo de Anuncio</th><th>Especificacion</th><th>Descripcion</th><th>Telefono #1</th><th>Telefono #2</th>
 					</thead>
 					<tbody>
@@ -60,5 +60,42 @@ include ("includes/footer.php");
 
 </body>
 <script src="js/jquery.dynatable.js"></script>
-
+<script>
+	$('#jsonTable').dynatable();
+	var path = window.location.pathname;
+	var pathQ = window.location.pathname+window.location.search;
+	if(path == "/lista"){
+		if(pathQ.indexOf("trabajo")!=-1){
+				$('#lgi3').addClass('active');
+			}
+			else{
+				if(pathQ.indexOf("publicidad")!=-1){
+					$('#lgi4').addClass('active');
+				}
+				else{
+					if(pathQ.indexOf("mascotas")!=-1){
+						$('#lgi5').addClass('active');
+					}
+					else{
+						$('#lgi0').addClass('active');
+					}
+				}
+			}		
+	}
+	else{
+		if(path == "/lista_todo"){
+			$('#lgi1').addClass('active');			
+		}
+		else{
+			if(path == "/inmobiliaria"){
+				$('#lgi2').addClass('active');
+			}
+			else{
+				if(path == "/vatodo"){
+					$('#lgi6').addClass('active');
+				}
+			}
+		}
+	}
+</script>
 </html>

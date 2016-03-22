@@ -39,11 +39,9 @@
 
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
-                                if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>';
+                                if($inmueble['cel2']!=0) echo " - ".$inmueble['cel2'];
                                  ?>
                                 </p>
-                                
                             </div>
                             <!--div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -94,8 +92,7 @@
                                 <b>Ubicacion:</b> <?php echo $inmueble['ubicacion'] ?><br>
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
-                                if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>';
+                                if($inmueble['cel2']!=0) echo " - ".$inmueble['cel2'];
                                  ?>
                                 </p>
                             </div>
