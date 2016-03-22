@@ -18,7 +18,7 @@
 		<li><a href="/lista">Lista</a></li>
 		<li><a href="/aconsejanos">Aconsejanos</a></li>
 		<li><a href="/eventos">Eventos</a></li>
-		<li><a href="/publica">Publica</a></li>
+		<li><a href="/contacto">Contactanos</a></li>
         <!--li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
