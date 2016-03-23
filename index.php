@@ -2,8 +2,7 @@
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
-$app->setName('Directorio Barranca');
-require 'app/libs/class.phpmailer.php';
+$app->setName('Not yet');
 require 'app/libs/connect.php';
 require 'app/routes/api.php';
 

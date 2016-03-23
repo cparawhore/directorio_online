@@ -40,13 +40,13 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="boxed-grey">
-                <form id="contact-form" method="post" action="/envio_msg">
+                <form id="contact-form" method="post" action="">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" required="required" />
+                            <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre" required="required" />
                         </div>
                         <div class="form-group">
                             <label for="email">
@@ -54,19 +54,25 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese su e-mail" required="required" /></div>
+                                <input type="email" class="form-control" id="email" placeholder="Ingrese su e-mail" required="required" /></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
                                 Para</label>
                             <input type="email" class="form-control" id="email-dev" value="directoriobarranca@gmail.com" required="required" disabled/>
+                            <!--select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="service">General Customer Service</option>
+                                <option value="suggestions">Suggestions</option>
+                                <option value="product">Product Support</option>
+                            </select-->
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Mensaje</label>
-                            <textarea name="message" id="message" name="msg" class="form-control" rows="9" cols="25" required="required"
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
                                 placeholder="Escribanos"></textarea>
                         </div>
                     </div>

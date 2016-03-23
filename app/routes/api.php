@@ -29,40 +29,6 @@ $app->get("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() us
 	}
 });
 
-$app->post("/envio_msg", function() use($app)
-{
-	try{
-		$nam = $app->request->post("name");
-		$ema = $app->request->post("email");
-		$msg = $app->request->post("msg");
-		$mail = new PHPMailer(); 
-		$body = $msg;
-		$mail­>SetFrom($ema, $nam);
-		$mail­>AddReplyTo($ema, $nam);
-		//Defino la dirección de correo a la que se envía el mensaje
-		$address = "directoriobarranca@gmail.com";
-		//la añado a la clase, indicando el nombre de la persona destinatario
-		$mail­>AddAddress($address, "Directorio Barranca");
-		
-		//Añado un asunto al mensaje
-		$mail­>Subject = "Contacto de la pagina";		
-		//Puedo definir un cuerpo alternativo del mensaje, que contenga solo texto
-		$mail­>AltBody = "Cuerpo alternativo del mensaje";
-		//inserto el texto del mensaje en formato HTML
-		$mail­>MsgHTML($body);
-		//envío el mensaje, comprobando si se envió correctamente
-		if(!$mail­>Send()) {
-		echo "Error al enviar el mensaje: " . $mail­>ErrorInfo;
-		} else {
-		echo "Mensaje enviado!!";
-		}
-	}
-	catch(PDOException $e)
-	{
-		echo "Error: " . $e->getMessage();
-	}
-});
-
 $app->post("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() use($app)
 {
 	try{
