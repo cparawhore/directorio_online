@@ -10,7 +10,7 @@ $app->post("/envio_msg", function() use($app)
 	try{
 		$nam = $app->request->post("name");
 		$ema = $app->request->post("email");
-		$msg = $app->request->post("msg");
+		$msg = $app->request->post("message");
 		$mail = new PHPMailer(); 
 		$body = $msg;
 		$mail->SetFrom($ema, $nam);
