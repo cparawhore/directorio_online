@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="boxed-grey">
-                <form id="contact-form" method="post" action="">
+                <form id="contact-form" method="post" action="/envio_msg">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

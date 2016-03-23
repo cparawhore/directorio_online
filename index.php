@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
 $app->setName('Not yet');
+require 'app/libs/class.phpmailer.php';
 require 'app/libs/connect.php';
 require 'app/routes/api.php';
 
