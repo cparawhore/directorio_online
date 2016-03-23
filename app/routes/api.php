@@ -28,7 +28,7 @@ $app->post("/envio_msg", function() use($app)
 		$mail->MsgHTML($body);
 		//envío el mensaje, comprobando si se envió correctamente
 		if(!$mail->Send()) {
-		echo "Error al enviar el mensaje: " . $mail­>ErrorInfo;
+		echo "Error al enviar el mensaje: " . $mail->ErrorInfo;
 		} else {
 		echo "Mensaje enviado!!";
 		}
