@@ -35,12 +35,7 @@ $app->get('/', function () use ($app){
 });
 $app->get('/contacto', function () use ($app){
     try{
-		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE curdate() - created_at < 60");
-		$dbh->execute();
-		$inmuebles = $dbh->fetchAll();
-		$connection = null;
-    	$app->render('lista.php', array('inmuebles'=> $inmuebles));
+    	$app->render('contacto.php');
 	}
 	catch(PDOException $e)
 	{
