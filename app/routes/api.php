@@ -11,26 +11,31 @@ $app->post("/envio_msg", function() use($app)
 		$nam = $app->request->post("name");
 		$ema = $app->request->post("email");
 		$msg = $app->request->post("message");
-		$mail = new PHPMailer(); 
-		$body = $msg;
-		$mail->SetFrom($ema, $nam);
-		$mail->AddReplyTo($ema, $nam);
-		//Defino la dirección de correo a la que se envía el mensaje
-		$address = "directoriobarranca@gmail.com";
-		//la añado a la clase, indicando el nombre de la persona destinatario
-		$mail->AddAddress($address, "Directorio Barranca");
+		$mail = new PHPMailer;
+
+		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 		
-		//Añado un asunto al mensaje
-		$mail->Subject = "Contacto de la pagina";		
-		//Puedo definir un cuerpo alternativo del mensaje, que contenga solo texto
-		$mail->AltBody = "Cuerpo alternativo del mensaje";
-		//inserto el texto del mensaje en formato HTML
-		$mail->MsgHTML($body);
-		//envío el mensaje, comprobando si se envió correctamente
-		if(!$mail->Send()) {
-		echo "Error al enviar el mensaje: " . $mail->ErrorInfo;
+		$mail->isSMTP();                                      // Set mailer to use SMTP
+		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$mail->Username = 'directoriobarranca@gmail.com';                 // SMTP username
+		$mail->Password = 'paramore761';                           // SMTP password
+		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port = 25;                                    // TCP port to connect to
+		
+		$mail->setFrom($ema, 'Mailer');
+		$mail->addAddress('directoriobarranca@example.net');   // Optional name
+		$mail->isHTML(true);                                  // Set email format to HTML
+		
+		$mail->Subject = 'Correo Pagina Directorio';
+		$mail->Body    = $msg."<br> Nombre: ".$nam." <br> Email: ".$ema;
+		$mail->AltBody = $msg."<br> Nombre: ".$nam." <br> Email: ".$ema;
+		
+		if(!$mail->send()) {
+		    echo 'Message could not be sent.';
+		    echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-		echo "Mensaje enviado!!";
+		    echo 'Message has been sent';
 		}
 	}
 	catch(PDOException $e)
