@@ -24,7 +24,7 @@
                         	$ruta = "img/inmuebles/temp/".$inmueble['imagen'];                        	
                         	if (file_exists($ruta)){
                         	?>
-                            <img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="">
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt=""></a>
                             <?php
                         	}
                             ?>
