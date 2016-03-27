@@ -16,6 +16,7 @@
 	<link href="/css/animate.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/js/jquery.fancybox.css" rel="stylesheet">
 	<link href="/color/default.css" rel="stylesheet">
 
 </head>

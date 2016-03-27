@@ -16,6 +16,7 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
+		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -24,7 +25,7 @@
                         	$ruta = "img/inmuebles/temp/".$inmueble['imagen'];                        	
                         	if (file_exists($ruta)){
                         	?>
-                            <img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="">
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt=""></a>
                             <?php
                         	}
                             ?>
@@ -34,11 +35,11 @@
 
                                 <?php if($inmueble['tipo']=='Trabajo') {?>
                                 <b>Descripcion:</b> 
-                                <?php } else {?><b>Ubicacion:</b> <?php } ?>
+                                <?php } else {?><b>Descripcion: </b> <?php } ?>
                                 <?php echo $inmueble['ubicacion'] ?><br>
 
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
-                                <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
+                                <b>Telefono/Celular: </b><?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
                                 echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>';
                                  ?>
@@ -87,7 +88,8 @@
 					<?php if(isset($array_dividida[1])){ foreach ( $array_dividida[1] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
-                            <img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            </a>
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
@@ -132,8 +134,17 @@
 
 	<!-- Section: contact -->
     
-
-
+<script>
+$(document).ready(function() {
+	$("a#single_image").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+})
+</script>
 </body>
 <?php
 include ("includes/footer.php");
