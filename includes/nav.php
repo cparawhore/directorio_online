@@ -7,7 +7,7 @@
                 </button>
                 <a class="navbar-brand" href="/">
                     <h1>DIRECTORIO BARRANCA</h1>
-                </a>
+                </a>BETA
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
