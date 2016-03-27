@@ -16,10 +16,7 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
-		<div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <b>Haga click en las imagenes para agrandar.</b>
-                            </div>
+		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
