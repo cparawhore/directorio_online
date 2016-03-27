@@ -316,6 +316,13 @@ hr {
 	background: url(../img/bg1.jpg) no-repeat top center;
 }
 
+.contactoIntro {
+	width:100%;
+	position:relative;
+	height:100px;
+	background: url(../img/bg2.jpg) no-repeat top center;
+}
+
 #intro.intro {
 	padding:20% 0 0 0;
 }

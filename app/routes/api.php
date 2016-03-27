@@ -5,6 +5,20 @@
 {#!8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA
 });*/
 
+$app->get('/eventos', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT *,fec_evento - curdate() as diferencia FROM eventos WHERE fec_evento - curdate() >= 0");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('eventos.php', array('inmuebles'=> $inmuebles));
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
 
 $app->get("/8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA", function() use($app)
 {
