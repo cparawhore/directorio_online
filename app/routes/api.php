@@ -5,38 +5,14 @@
 {#!8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA
 });*/
 
-$app->post("/envio_msg", function() use($app)
-{
-	try{
-		$nam = $app->request->post("name");
-		$ema = $app->request->post("email");
-		$msg = $app->request->post("message");
-		$mail = new PHPMailer;
-
-		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-		
-		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'directoriobarranca@gmail.com';                 // SMTP username
-		$mail->Password = 'paramore761';                           // SMTP password
-		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-		$mail->Port = 25;                                    // TCP port to connect to
-		
-		$mail->setFrom($ema, 'Mailer');
-		$mail->addAddress('directoriobarranca@example.net');   // Optional name
-		$mail->isHTML(true);                                  // Set email format to HTML
-		
-		$mail->Subject = 'Correo Pagina Directorio';
-		$mail->Body    = $msg."<br> Nombre: ".$nam." <br> Email: ".$ema;
-		$mail->AltBody = $msg."<br> Nombre: ".$nam." <br> Email: ".$ema;
-		
-		if(!$mail->send()) {
-		    echo 'Message could not be sent.';
-		    echo 'Mailer Error: ' . $mail->ErrorInfo;
-		} else {
-		    echo 'Message has been sent';
-		}
+$app->get('/eventos', function () use ($app){
+    try{
+		$connection = getConnection();
+		$dbh = $connection->prepare("SELECT *,curdate() - fec_evento as diferencia FROM eventos WHERE curdate() - fec_evento <= 0");
+		$dbh->execute();
+		$inmuebles = $dbh->fetchAll();
+		$connection = null;
+    	$app->render('eventos.php', array('inmuebles'=> $inmuebles));
 	}
 	catch(PDOException $e)
 	{
