@@ -16,7 +16,7 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
-		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b>
+		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b><br><br>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -88,7 +88,7 @@
 					<?php if(isset($array_dividida[1])){ foreach ( $array_dividida[1] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
-                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/".$inmueble['imagen'] ?> alt="">
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="">
                             </a>
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
@@ -134,7 +134,11 @@
 
 	<!-- Section: contact -->
     
-<script>
+
+</body>
+<?php
+include ("includes/footer.php");
+	?><script>
 $(document).ready(function() {
 	$("a#single_image").fancybox({
 		'transitionIn'	:	'elastic',
@@ -145,8 +149,4 @@ $(document).ready(function() {
 	});
 })
 </script>
-</body>
-<?php
-include ("includes/footer.php");
-	?>
 </html>
