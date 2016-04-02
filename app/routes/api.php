@@ -179,7 +179,7 @@ $app->get('/page/:id', function ($id) use ($app){
     try{
 		$connection = getConnection();
 		$desde = $id*8;
-		$dbh = $connection->prepare("SELECT *,fec_evento - curdate() as diferencia FROM inmuebles LIMIT ".$desde.",8");// WHERE enabled=1 AND curdate() - created_at < 60 LIMIT 8");
+		$dbh = $connection->prepare("SELECT *,curdate() - created_at as diferencia FROM inmuebles LIMIT ".$desde.",8");// WHERE enabled=1 AND curdate() - created_at < 60 LIMIT 8");
 		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles");
 		$dbh->execute();
 		$count->execute();
