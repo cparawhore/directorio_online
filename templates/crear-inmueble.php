@@ -116,7 +116,9 @@
 	
 
 	<!-- Section: contact -->
-    
+   <?php
+include ("includes/footer.php");
+	?> 
 
 <script>
  $(document).ready(function(){
@@ -154,7 +156,5 @@
 });
 </script>
 </body>
-<?php
-include ("includes/footer.php");
-	?>
+
 </html>
