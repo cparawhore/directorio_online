@@ -53,7 +53,8 @@
 						  <option value="Venta">Venta</option>
 						  <option value="Alquiler">Alquiler</option>
 						  <option value="Trabajo">Trabajo</option>
-						  <option value="Trabajo2">Otro trabajo</option>
+						  <option value="Trabajo">Otro trabajo</option>
+						  <option value="Aviso">Aviso</option>
 					</select>
 					</div>
 
@@ -64,6 +65,7 @@
 						  <option value="Casa">Casa</option>
 						  <option value="Departamento">Departamento</option>
 						  <option value="Local Comercial">Local Comercial</option>
+						  <option value="Perdida">Perdida</option>
 					</select>
 					</div>
 					<div class="form-group">
