@@ -44,13 +44,15 @@
 
                                 <?php if($inmueble['tipo']=='Trabajo') {?>
                                 <b>Descripcion:</b> 
-                                <?php } else {?><b>Descripcion: </b> <?php } ?>
-                                <?php echo $inmueble['ubicacion'] ?><br>
+                               <?php if($inmueble['ubicacion']="") echo "No especificado" 
+                                else {echo $inmueble['ubicacion']; }
+                                ?><br>
 
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>';
+                                if($inmueble['diferencia']==0) echo '<div class="text-right">Subido hoy día!</div>';
+                                else { echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?>
                                 </p>
                                 
@@ -102,11 +104,14 @@
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
-                                <b>Ubicacion:</b> <?php echo $inmueble['ubicacion'] ?><br>
+                                <b>Descripcion:</b> <?php if($inmueble['ubicacion']="") echo "No especificado" 
+                                else {echo $inmueble['ubicacion']; }
+                                ?><br>
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>';
+                                if($inmueble['diferencia']==0) echo '<div class="text-right">Subido hoy día!</div>';
+                                else { echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?>
                                 </p>
                             </div>
