@@ -19,8 +19,8 @@ $app->error(function (\Exception $e) use ($app) {
 $app->get('/', function () use ($app){
     try{
 		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT *,curdate() - created_at as diferencia FROM inmuebles WHERE curdate() - created_at < 60 LIMIT 8");
-		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles WHERE curdate() - created_at < 60");
+		$dbh = $connection->prepare("SELECT *,datediff(curdate(), created_at) as diferencia FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) ORDER BY ID DESC LIMIT 8");
+		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY)");
 		$dbh->execute();
 		$count->execute();
 		$inmuebles = $dbh->fetchAll();
@@ -46,7 +46,7 @@ $app->get('/contacto', function () use ($app){
 $app->get('/lista', function () use ($app){
     try{
 		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE curdate() - created_at < 60");
+		$dbh = $connection->prepare("SELECT * FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY)");
 		$dbh->execute();
 		$inmuebles = $dbh->fetchAll();
 		$connection = null;
