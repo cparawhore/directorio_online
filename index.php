@@ -19,7 +19,7 @@ $app->error(function (\Exception $e) use ($app) {
 $app->get('/', function () use ($app){
     try{
 		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT *,curdate() - created_at as diferencia FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) ORDER BY ID DESC LIMIT 8");
+		$dbh = $connection->prepare("SELECT *,datediff(curdate(), created_at) as diferencia FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) ORDER BY ID DESC LIMIT 8");
 		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY)");
 		$dbh->execute();
 		$count->execute();
