@@ -42,7 +42,7 @@
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo']." - ".$inmueble['tipo_in'] ?><br>
 
-                                <?php if($inmueble['tipo']=='Trabajo') {?>
+                                
                                 <b>Descripcion:</b> 
                                <?php if($inmueble['ubicacion']="") echo "No especificado" 
                                 else {echo $inmueble['ubicacion']; }
