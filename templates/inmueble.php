@@ -44,7 +44,7 @@
 
                                 
                                 <b>Descripcion:</b> 
-                               <?php if($inmueble['ubicacion']="") echo "No especificado" 
+                               <?php if($inmueble['ubicacion']=="") echo "No especificado";
                                 else {echo $inmueble['ubicacion']; }
                                 ?><br>
 
@@ -104,7 +104,7 @@
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo_in']." - ".$inmueble['tipo'] ?><br>
-                                <b>Descripcion:</b> <?php if($inmueble['ubicacion']="") echo "No especificado" 
+                                <b>Descripcion:</b> <?php if($inmueble['ubicacion']=="") echo "No especificado"; 
                                 else {echo $inmueble['ubicacion']; }
                                 ?><br>
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
