@@ -29,17 +29,22 @@
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
-                        <div class="thumbnail">
-                        	<?php
+                    	<div class="thumbnail">
+                       		<?php
                         	$ruta = "img/inmuebles/temp/".$inmueble['imagen'];                        	
                         	if (file_exists($ruta)){
                         	?>
+
                             <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt=""></a>
+                           
                             <?php
                         	}
-                            ?>
+                            ?> 
+
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
+                                 
+
                                 <p><b>Tipo:</b> <?php echo $inmueble['tipo']." - ".$inmueble['tipo_in'] ?><br>
 
                                 
@@ -49,11 +54,19 @@
                                 ?><br>
 
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
-                                <b>Telefono/Celular: </b><?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
-                                if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                if($inmueble['diferencia']==0) echo '<div class="text-right">Subido hoy día!</div>';
-                                else { echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
-                                 ?>
+                                <b>Telefono/Celular: </b>
+
+                                
+
+                                <?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
+									if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';?>
+
+                                 
+
+                                <?php 
+                                if($inmueble['diferencia']==0) echo '<div class="">Subido hoy día!</div>';
+                                else { echo '<div class="">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
+                                 ?><button id="report<?php echo $inmueble['id']?>" type="button" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                 </p>
                                 
                             </div>
@@ -110,9 +123,9 @@
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
                                 <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                if($inmueble['diferencia']==0) echo '<div class="text-right">Subido hoy día!</div>';
-                                else { echo '<div class="text-right">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
-                                 ?>
+                                if($inmueble['diferencia']==0) echo '<div class="">Subido hoy día!</div>';
+                                else { echo '<div class="">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
+                                 ?><button id="report<?php echo $inmueble['id']?>" type="button" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                 </p>
                             </div>
                         </div>
@@ -162,5 +175,15 @@ $(document).ready(function() {
 		'overlayShow'	:	false
 	});
 })
+
+function realizaProceso(id){
+        $.ajax({                
+                url:   'ajax/updateVote.php?id='+id,
+                type:  'post',
+                success:  function (response) {                        
+                }
+        });
+}
+
 </script>
 </html>
