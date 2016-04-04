@@ -53,6 +53,8 @@
 						  <option value="Venta">Venta</option>
 						  <option value="Alquiler">Alquiler</option>
 						  <option value="Trabajo">Trabajo</option>
+						  <option value="Trabajo">Otro trabajo</option>
+						  <option value="Aviso">Aviso</option>
 					</select>
 					</div>
 
@@ -63,7 +65,7 @@
 						  <option value="Casa">Casa</option>
 						  <option value="Departamento">Departamento</option>
 						  <option value="Local Comercial">Local Comercial</option>
-						  <option value="Easter">Cambiar!</option>
+						  <option value="Perdida">Perdida</option>
 					</select>
 					</div>
 					<div class="form-group">
@@ -116,45 +118,50 @@
 	
 
 	<!-- Section: contact -->
-    
+   <?php
+include ("includes/footer.php");
+	?> 
 
 <script>
  $(document).ready(function(){
  	function cambiar(index){
- 		/*var newOptions = {"Option 1": "value1",
-		  "Option 2": "value2",
-		  "Option 3": "value3"
-		};*/
+ 		var newOptions = {
+ 		"Agente comercial": "Agente comercial",
+ 		"Asistente contable": "Asistente contable",
+ 		"Asistente administrativo": "Asistente administrativo",
+ 		"Atencion al cliente": "Atencion al cliente",
+		"Cocinero": "Cocinero",
+		"Comercial / Ventas": "Comercial / Ventas",
+		"Limpieza": "Limpieza",
+		"Mantenimiento": "Mantenimiento",
+		"Promotor de ventas": "Promotor de ventas",
+		"Seguridad": "Seguridad",
+		"Vendedor": "Vendedor"
+		};
 		
-		var $el = $("#subopciones");
+		var $so = $("#subopciones");
 		 // 2 = Trabajo
 		if(index == 2){
-			/*$el.empty();
+			$so.empty();
 				$.each(newOptions, function(value,key) {
-			  		$el.append($("<option></option>")
+			  		$so.append($("<option></option>")
 			    	 .attr("value", value).text(key));
-			});*/
+			});
+			//$("#subopciones").remove();
+			//$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
+		}
+		if(index == 3){
 			$("#subopciones").remove();
 			$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
 		}
  	}
- 	function cambiarS(index){var $el = $("#subopciones");
-		if(index == 4){
-			$("#subopciones").remove();
-			$("#nuevoInput").append('<input type="text" class="form-control" placeholder="Trabajo" name="tip_inm" autocomplete="off">');
-		}
- 	}
+ 	
 
     $("#opciones").change(function(){
 		cambiar($("#opciones")[0].selectedIndex);
 	});
-	$("#subopciones").change(function(){
-		cambiarS($("#subopciones")[0].selectedIndex);
-	});
 });
 </script>
 </body>
-<?php
-include ("includes/footer.php");
-	?>
+
 </html>

@@ -22,8 +22,14 @@
 					<div class="col-md-8">
                 <div class="thumbnail">
                     <img class="img-responsive" src=<?php echo "/img/eventos/temp/".$inmueble['imagen']; ?> alt="">
+                    <br><br>
                     <div class="caption-full">
-                    	<h4 class="pull-right">Faltan <?php echo $inmueble['diferencia']; ?> día(s)</h4>
+                    	<h4 class="pull-right">
+                    		<?php if($inmueble['diferencia']>0) echo "Faltan ".$inmueble['diferencia']." días!"; 
+                    		if($inmueble['diferencia']==0) echo "El evento es hoy!";
+                    		if($inmueble['diferencia']<0) echo "Evento finalizado";
+                    		?>
+                    	</h4>
                         <h4><a href="#"><?php echo $inmueble['titulo']; ?></a>
                         </h4>
                         <p><?php echo $inmueble['descripcion']; ?></p>

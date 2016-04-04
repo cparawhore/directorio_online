@@ -8,7 +8,7 @@
 $app->get('/eventos', function () use ($app){
     try{
 		$connection = getConnection();
-		$dbh = $connection->prepare("SELECT *,fec_evento - curdate() as diferencia FROM eventos WHERE fec_evento - curdate() >= 0");
+		$dbh = $connection->prepare("SELECT *,datediff(fec_evento, curdate()) as diferencia FROM eventos WHERE datediff(fec_evento, curdate())");
 		$dbh->execute();
 		$inmuebles = $dbh->fetchAll();
 		$connection = null;
