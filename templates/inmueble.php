@@ -54,19 +54,17 @@
                                 ?><br>
 
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
-                                <b>Telefono/Celular: </b>
-
-                                
-
+                                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <b> Telefono/Celular: </b> 
                                 <?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
 									if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';?>
 
-                                 
+                                 y
 
                                 <?php 
-                                if($inmueble['diferencia']==0) echo '<div class="">Subido hoy día!</div>';
-                                else { echo '<div class="">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
-                                 ?><button id="report<?php echo $inmueble['id']?>" type="button" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                if($inmueble['diferencia']==0) echo '<div class=""><span class="glphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
+                                else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
+                                 ?><br>
+                                 <h4><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                                 
                             </div>
@@ -121,11 +119,13 @@
                                 else {echo $inmueble['ubicacion']; }
                                 ?><br>
                                 <?php if($inmueble['area']!=0){ ?><b>Area:</b> <?php echo $inmueble['area']."m<sup>2</sup><br>"; }?> 
-                                <b>Telefono/Celular: </b><?php echo $inmueble['cel'];
+                                <b><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Telefono/Celular: </b><?php echo $inmueble['cel'];
                                 if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';
-                                if($inmueble['diferencia']==0) echo '<div class="">Subido hoy día!</div>';
-                                else { echo '<div class="">Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
-                                 ?><button id="report<?php echo $inmueble['id']?>" type="button" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                if($inmueble['diferencia']==0) echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
+                                else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
+                                 ?><br>
+                                 <h4><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="
+glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                             </div>
                         </div>

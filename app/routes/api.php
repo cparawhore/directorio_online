@@ -113,6 +113,7 @@ $app->post("/christian08", function() use($app)
 		$cel2 = $app->request->post("cel2");
 		$ver = 0;
 		$pub = 1;
+		$votos = 0;
 		$nom_img = rand(0, 9).rand(0, 9) . $_FILES['img']['name'];
 		$nom_img_post = $nom_img;
 		if($tit == '' || $tip_ven == '' || $tip_inm == '') $mensajes[] = "Falta llenar los datos mas importantes";
@@ -150,7 +151,7 @@ $app->post("/christian08", function() use($app)
 			}
 			}
 			$connection = getConnection();
-			$dbh = $connection->prepare("INSERT INTO inmuebles (tipo, tipo_in, ubicacion, area, cel, cel2, titulo,imagen, created_at, verificado, enabled) VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?,?)");
+			$dbh = $connection->prepare("INSERT INTO inmuebles (tipo, tipo_in, ubicacion, area, cel, cel2, titulo,imagen, created_at, verificado, enabled) VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?,?,?)");
 			$dbh->bindParam(1, $tip_ven);
 			$dbh->bindParam(2, $tip_inm);
 			$dbh->bindParam(3, $ubi);
@@ -161,6 +162,7 @@ $app->post("/christian08", function() use($app)
 			$dbh->bindParam(8, $nom_img_post);
 			$dbh->bindParam(9, $ver);
 			$dbh->bindParam(10, $pub);
+			$dbh->bindParam(11, $votos);
 			$dbh->execute();
 			//$bookId = $connection->lastInsertId();
 			$connection = null;

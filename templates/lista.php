@@ -41,7 +41,7 @@
               </div>
               </div>
               <div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12"><br>
 				<table id="jsonTable" class="table table-hover table-striped table-bordered">
 					<thead><th>Titulo</th><th>Tipo de Anuncio</th><th>Especificacion</th><th>Descripcion</th><th>Telefono #1</th><th>Telefono #2</th>
 					</thead>
