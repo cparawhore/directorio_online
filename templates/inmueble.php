@@ -1,7 +1,10 @@
-
 <?php
-	include ("includes/header.php");
-	?>
+    
+        
+    if(count($inmuebles)==0) {?><script type="text/javascript">window.location="http://directoriobarranca.azurewebsites.net";</script>
+    
+
+	<?php } include ("includes/header.php");?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,19 +16,30 @@
 
 </script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=176871602514740";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<!-- Preloader -->
 	<div id="preloader">
 	  <div id="load"></div>
 	</div>
 	<?php
 	include ("includes/nav.php");
-	$array_dividida = array_chunk($inmuebles, 4);
+    $array_dividida = array_chunk($inmuebles, 4);
 	?>
 	<!-- Section: services -->
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
-		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b><br><br>
+		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b><br>
+       <br>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -35,7 +49,7 @@
                         	if (file_exists($ruta)){
                         	?>
 
-                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt=""></a>
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px"></a>
                            
                             <?php
                         	}
@@ -57,14 +71,11 @@
                                 <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <b> Telefono/Celular: </b> 
                                 <?php  if($inmueble['cel']!=0) echo $inmueble['cel'];
 									if($inmueble['cel2']!=0) echo " / ".$inmueble['cel2'].'<br>';?>
-
-                                 y
-
                                 <?php 
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                                 
                             </div>
@@ -106,11 +117,16 @@
 
 
                 </div>
+
+
+             <div class="fb-like" data-href="http://directoriobarranca.azurewebsites.net/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+             <br><br>
+
                 <div class="row">
 					<?php if(isset($array_dividida[1])){ foreach ( $array_dividida[1] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
-                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="">
+                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px">
                             </a>
                             <div class="caption">
                                 <h4><?php echo $inmueble['titulo'] ?></h4>
@@ -124,7 +140,7 @@
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="
 glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                             </div>
@@ -136,22 +152,28 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                 <!--fin-->
 		<div class="row">
 			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
+				<hr class="marginbot-1">
 			</div>
 		</div>
 		<?php if($var>8) {?>
 			<center>
-				<ul class="pagination">
-				<!--li><a href="#">&laquo;</a></li-->
-				<?php
+				<ul class="pagination pagination-lg">
+				<?php 
+                    $ultimaPagina=0;
+                    for($i=0; $i<ceil($var/8); $i++){
+                        $ultimaPagina=$i;
+                    }
+                    
+                    if((int)$num_page!=0) echo '<li><a href="/page/'.($num_page-1).'"">Pagina Anterior</a></li>';
 					for($i=0; $i<ceil($var/8); $i++){
-						if(isset($numpage) && $num_page==$i) echo '<li class="active"><a href="/page/'.$i.'">'.$i.'</a></li>';
+						if(isset($num_page) && $num_page==$i) echo '<li class="active"><a href="/page/'.$i.'">'.$i.'</a></li>';
 						else echo '<li><a href="/page/'.$i.'">'.$i.'</a></li>';
 					}
+                    if((int)$num_page!=$ultimaPagina) echo '<li><a href="/page/'.($num_page+1).'"">Pagina siguiente</a></li>';
 				?>
-				<!--li><a href="#">&raquo;</a></li-->
 				</ul>
 			</center><?php } ?>
+             <br><br>
 		</div>
 	</section>
 	<!-- /Section: services -->

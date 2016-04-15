@@ -26,7 +26,7 @@ $app->get('/', function () use ($app){
 		$inmuebles = $dbh->fetchAll();
 		$numero = $count->fetch();
 		$connection = null;
-    	$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0]));
+    	$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0], 'num_page'=> 0));
 	}
 	catch(PDOException $e)
 	{
