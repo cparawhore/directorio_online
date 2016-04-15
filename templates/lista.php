@@ -20,18 +20,28 @@
 		
 		<div class="container"><!--plantilla-->
 		<div class="row">
-			<div class="col-md-3">
-			<div class="list-group">
-                            <a href="/lista" class="list-group-item" id="lgi0">Menos de 2 meses</a>
-                            <a href="/lista_todo" class="list-group-item" id="lgi1">Todos los anuncios</a>
-                            <a href="/inmobiliaria" class="list-group-item" id="lgi2">Terrenos/Cuartos/Locales</a>
-                            <a href="/lista?pagina=1&queries[search]=trabajo" class="list-group-item" id="lgi3">Trabajos</a>
-                            <a href="/lista?pagina=1&queries[search]=publicidad" class="list-group-item" id="lgi4">Publicidad</a>
-                            <a href="/lista?pagina=1&queries[search]=mascotas" class="list-group-item" id="lgi5">Mascotas</a>
-                            <a href="/vatodo" class="list-group-item" id="lgi6">Venta y Alquiler de Todo</a>
-                        </div>
-			</div>
-			<div class="col-md-9">
+			<div class="col-md-12" align="center">
+							<ul class="nav nav-pills">
+                                <li class="">
+                            <a href="/lista" class="list-group-item" id="lgi0"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Menos de 2 meses</a>
+                                </li>
+                                <li class=""><a href="/lista_todo" class="list-group-item" id="lgi1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Todos los anuncios</a>
+                                </li>
+                                <li class=""><a href="/inmobiliaria" class="list-group-item" id="lgi2"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Terrenos/Cuartos/Locales</a>
+                                </li>
+                                <li class=""><a href="/lista?pagina=1&queries[search]=trabajo" class="list-group-item" id="lgi3"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Trabajos</a>
+                                </li>
+                                <li class=""><a href="/lista?pagina=1&queries[search]=publicidad" class="list-group-item" id="lgi4"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Publicidad</a>
+                                </li>
+                                <li class=""><a href="/lista?pagina=1&queries[search]=mascotas" class="list-group-item" id="lgi5"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> Mascotas</a>
+                                </li>
+                                <li class=""><a href="/vatodo" class="list-group-item" id="lgi6"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Venta y Alquiler de Todo</a>
+                                </li>
+                            </ul>   
+              </div>
+              </div>
+              <div class="row">
+			<div class="col-md-12"><br>
 				<table id="jsonTable" class="table table-hover table-striped table-bordered">
 					<thead><th>Titulo</th><th>Tipo de Anuncio</th><th>Especificacion</th><th>Descripcion</th><th>Telefono #1</th><th>Telefono #2</th>
 					</thead>

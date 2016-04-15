@@ -1200,7 +1200,8 @@
     };
 
     this.create = function() {
-      var $search = $('<input />', {
+      var 
+          $search = $('<input />', {
             type: 'search',
             id: 'dynatable-query-search-' + obj.element.id,
             'data-dynatable-query': 'search',
@@ -1208,7 +1209,7 @@
           }),
           $searchSpan = $('<span></span>', {
             id: 'dynatable-search-' + obj.element.id,
-            'class': 'dynatable-search',
+            'class': 'dynatable-search ',
             text: 'Buscar: '
           }).append($search);
 
@@ -1218,9 +1219,9 @@
         })
         .bind('keypress', function(e) {
           if (e.which == 13) {
-            obj.queries.runSearch($(this).val());
             e.preventDefault();
-          }
+            obj.queries.runSearch($(this).val());
+           }
         });
       return $searchSpan;
     };
