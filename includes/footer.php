@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
 					
-					<p>Backend: DevIt! .Designed by <a target="_blank" href="http://bootstraptaste.com">Bootstrap Themes</a> Made with <img src="/img/goodies.png" alt="Herramientas"> </p>
+					<p>Backend: BarrancaJS. Designed by <a target="_blank" href="http://bootstraptaste.com">Bootstrap Themes</a> Made with <img src="/img/goodies.png" alt="Herramientas"> </p>
                     <!-- 
                         All links in the footer should remain intact. 
                         Licenseing information is available at: http://bootstraptaste.com/license/
