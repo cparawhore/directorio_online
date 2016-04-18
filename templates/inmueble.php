@@ -38,12 +38,15 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
-<<<<<<< HEAD
-		Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b><br>
        <br>
-=======
-		<div class="well well-sm">Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b></div><br><br>
->>>>>>> publico
+
+		<div class="alert alert-info" role="alert">
+        Si desea publicar envie un mensaje a <strong>directoriobarranca@gmail.com</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+      </div>
+
+      <br><br>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -53,7 +56,7 @@
                         	if (file_exists($ruta)){
                         	?>
 
-                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px"></a>
+                            <a  id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px"></a>
                            
                             <?php
                         	}
@@ -79,9 +82,10 @@
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" 
+                                 onClick="realizaProceso(<?php echo $inmueble['id']?>);" 
+                                 class="label label-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
-                                
                             </div>
                             <!--div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -144,7 +148,7 @@
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning" data-toggle="modal" data-target="#myModal"><span class="
 glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                             </div>
@@ -185,8 +189,21 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 
 	
 
-	<!-- Section: contact -->
-    
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Anuncio Reportado</h4>
+      </div>
+      <div class="modal-body">
+        Gracias por su informacion, los datos seran revisados y verificados
+        <p align="right">BarrancaJS</p>
+      </div>
+    </div>
+  </div>
+</div>  
 
 </body>
 <?php
@@ -206,7 +223,8 @@ function realizaProceso(id){
         $.ajax({                
                 url:   'ajax/updateVote.php?id='+id,
                 type:  'post',
-                success:  function (response) {                        
+                success:  function (response) {     
+                    $("#report"+id).remove();              
                 }
         });
 }
