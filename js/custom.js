@@ -4,6 +4,8 @@
 	if(path == "/lista"){
 		if(pathQ.indexOf("trabajo")!=-1){
 				$('#lgi3').addClass('active');
+				$('#contactoIntro').removeClass('contactoIntro');
+				$('#contactoIntro').addClass('bgtrabajos');
 			}
 			else{
 				if(pathQ.indexOf("publicidad")!=-1){
@@ -12,6 +14,8 @@
 				else{
 					if(pathQ.indexOf("mascotas")!=-1){
 						$('#lgi5').addClass('active');
+						$('#contactoIntro').removeClass('contactoIntro');
+						$('#contactoIntro').addClass('bgpets');
 					}
 					else{
 						$('#lgi0').addClass('active');
@@ -26,6 +30,8 @@
 		else{
 			if(path == "/inmobiliaria"){
 				$('#lgi2').addClass('active');
+				$('#contactoIntro').removeClass('contactoIntro');
+				$('#contactoIntro').addClass('bginmo');
 			}
 			else{
 				if(path == "/vatodo"){

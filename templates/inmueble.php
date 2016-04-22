@@ -87,43 +87,9 @@
                                  class="label label-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                             </div>
-                            <!--div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div-->
                         </div>
                     </div>
                     <?php endforeach; }?>
-
-                    <!--div class="col-sm-3 col-lg-3 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div-->
-
-
                 </div>
 
 
@@ -209,7 +175,11 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 <?php
 include ("includes/footer.php");
 	?><script>
+
+
+
 $(document).ready(function() {
+    eliminarBotones();
 	$("a#single_image").fancybox({
 		'transitionIn'	:	'elastic',
 		'transitionOut'	:	'elastic',
@@ -217,14 +187,60 @@ $(document).ready(function() {
 		'speedOut'		:	200, 
 		'overlayShow'	:	false
 	});
+
 })
+
+
+
+function readCookie(name) {
+
+  var nameEQ = name + "="; 
+  var ca = document.cookie.split(';');
+
+  for(var i=0;i < ca.length;i++) {
+
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) {
+      return decodeURIComponent( c.substring(nameEQ.length,c.length) );
+    }
+
+  }
+
+  return "";
+}
+
+function eliminarBotones() {
+
+  var nameEQ = "reps="; 
+  var ca = document.cookie.split(';');
+
+  for(var i=0;i < ca.length;i++) {
+
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) {
+      /*return*/ var str = decodeURIComponent( c.substring(nameEQ.length,c.length) );
+      var dato = str.split(" ");
+      for (var i=0; i<str.length; i++) { $("#"+dato[i]).remove() }
+    }
+
+  }
+
+  return "";
+}
 
 function realizaProceso(id){
         $.ajax({                
                 url:   'ajax/updateVote.php?id='+id,
                 type:  'post',
                 success:  function (response) {     
-                    $("#report"+id).remove();              
+                    $("#report"+id).remove();
+                    var d = new Date();
+                    d.setTime(d.getTime() + (60*24*60*60*1000));
+                    var expires = "expires="+ d.toUTCString();
+                    document.cookie = "reps=" + readCookie("reps") + encodeURIComponent( " report"+id );
+                    //document.cookie = expires;              
                 }
         });
 }

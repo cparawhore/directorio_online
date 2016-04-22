@@ -2,6 +2,8 @@
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
+
+
 $app->setName('Not yet');
 require 'app/libs/connect.php';
 require 'app/routes/api.php';
@@ -106,6 +108,9 @@ $app->get('/aconsejanos', function () use ($app){
     $app->render('aconseja.php');
 });
 
-
+$app->notFound(function () use ($app) {
+    $app->render('404.html');
+});
 $app->run();
+
 ?>

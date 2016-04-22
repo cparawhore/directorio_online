@@ -6,7 +6,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <h1>DIRECTORIO BARRANCA</h1>
+                    <h1>DIRECTORIO NORTE CHICO</h1>
                 </a>
             </div>
 
