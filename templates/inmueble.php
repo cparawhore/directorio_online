@@ -5,11 +5,26 @@
     
 
 	<?php } include ("includes/header.php");?>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-69457617-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
 <div id="fb-root"></div>
-
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=176871602514740";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- Preloader -->
 	<div id="preloader">
@@ -23,8 +38,15 @@
     <section id="directorio" class="home-section text-center bg-gray">
 		
 		<div class="container"><!--plantilla-->
-		<div class="well well-sm">Haga click en las imagenes para agrandar. Si desea publicar envie un mensaje a <b>directoriobarranca@gmail.com</b></div><br><br>
+       <br>
 
+		<div class="alert alert-info" role="alert">
+        Si desea publicar envie un mensaje a <strong>directorionortechico@gmail.com</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+      </div>
+
+      <br><br>
 		<div class="row">
 					<?php if(isset($array_dividida[0])){  foreach ( $array_dividida[0] as $inmueble ): ?>
                     <div class="col-sm-3 col-lg-3 col-md-3">
@@ -34,7 +56,7 @@
                         	if (file_exists($ruta)){
                         	?>
 
-                            <a id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px"></a>
+                            <a  id="single_image" href=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?>><img src=<?php echo "/img/inmuebles/temp/".$inmueble['imagen'] ?> alt="" style="height: 110px"></a>
                            
                             <?php
                         	}
@@ -60,47 +82,14 @@
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" 
+                                 onClick="realizaProceso(<?php echo $inmueble['id']?>);" 
+                                 class="label label-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
-                                
                             </div>
-                            <!--div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div-->
                         </div>
                     </div>
                     <?php endforeach; }?>
-
-                    <!--div class="col-sm-3 col-lg-3 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div-->
-
-
                 </div>
 
 
@@ -125,7 +114,7 @@
                                 if($inmueble['diferencia']==0) echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Subido hoy día!</div>';
                                 else { echo '<div class=""><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Hace '.$inmueble['diferencia'].' dia(s)</div>'; }
                                  ?><br>
-                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning"><span class="
+                                 <h4 style="cursor: pointer"><span id="report<?php echo $inmueble['id']?>" onClick="realizaProceso(<?php echo $inmueble['id']?>);" class="label label-warning" data-toggle="modal" data-target="#myModal"><span class="
 glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
                                 </p>
                             </div>
@@ -154,7 +143,7 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 						if(isset($num_page) && $num_page==$i) echo '<li class="active"><a href="/page/'.$i.'">'.$i.'</a></li>';
 						else echo '<li><a href="/page/'.$i.'">'.$i.'</a></li>';
 					}
-                    if((int)$num_page!=$ultimaPagina) echo '<li><a href="/page/'.($num_page+1).'"">Pagina siguiente</a></li>';
+                    if((int)$num_page!=$ultimaPagina) echo '<li><a href="/page/'.($num_page+1).'"">Pagina siguiente <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>';
 				?>
 				</ul>
 			</center><?php } ?>
@@ -166,14 +155,30 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 
 	
 
-	<!-- Section: contact -->
-    
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Anuncio Reportado</h4>
+      </div>
+      <div class="modal-body">
+        Gracias por su informacion, los datos seran revisados y verificados
+        <p align="right">BarrancaJS</p>
+      </div>
+    </div>
+  </div>
+</div>  
 
 </body>
 <?php
 include ("includes/footer.php");
-	?><script>
+	?>
+  <script>
+
 $(document).ready(function() {
+    eliminarBotones();
 	$("a#single_image").fancybox({
 		'transitionIn'	:	'elastic',
 		'transitionOut'	:	'elastic',
@@ -181,31 +186,7 @@ $(document).ready(function() {
 		'speedOut'		:	200, 
 		'overlayShow'	:	false
 	});
+
 })
-
-function realizaProceso(id){
-        $.ajax({                
-                url:   'ajax/updateVote.php?id='+id,
-                type:  'post',
-                success:  function (response) {                        
-                }
-        });
-}
-
-</script><script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-69457617-2', 'auto');
-  ga('send', 'pageview');
-
-</script><script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=176871602514740";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+</script>
 </html>

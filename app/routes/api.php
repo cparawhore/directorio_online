@@ -5,6 +5,16 @@
 {#!8ogWwTDR!ez8HoC-LS4l6Db3ffwJ0GzZahYFX6dGGLx3wGEcFcKA
 });*/
 
+$app->get('/tutorial', function () use ($app){
+    try{
+    	$app->render('tutorial.php');
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+});
+
 $app->get('/eventos', function () use ($app){
     try{
 		$connection = getConnection();

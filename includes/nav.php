@@ -6,8 +6,8 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <h1>DIRECTORIO BARRANCA</h1>
-                </a>BETA
+                    <h1>DIRECTORIO NORTE CHICO</h1>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -15,7 +15,8 @@
       <ul class="nav navbar-nav">
         <!--li class="active"><a href="#intro">Home</a></li>
         <li><a href="#about">About</a></li-->
-		<li><a href="/lista">Lista</a></li>
+        <li><a href="/tutorial"><button style="margin-top: -6px" type="submit" class="btn btn-skin pull-right">Tutorial</button></a></li>
+		<li><a href="/lista">Buscar</a></li>
 		<li><a href="/aconsejanos">Aconsejanos</a></li>
 		<li><a href="/eventos">Eventos</a></li>
 		<!--li><a href="/contacto">Contactanos</a></li-->

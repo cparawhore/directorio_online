@@ -1,0 +1,28 @@
+<link href="css/style.css" rel="stylesheet">
+<body style="background-color: black">
+<center><img style="margin-top: 60px" src="img/notFound.gif" alt="" style=""><br><br>
+<div id="texto" style="color: white; font-family: Anyway; font-size:40px"></div></center>
+<audio src="img/notFound.ogg" autoplay loop>
+<p>If you are reading this, it is because your browser does not support the audio element.     </p>
+</audio>
+<script type="text/javascript">
+	function maquina(contenedor,texto,intervalo){
+   longitud = texto.length;
+   cnt = document.getElementById(contenedor);
+   var i=0;
+   timer = setInterval(function(){
+      cnt.innerHTML = cnt.innerHTML.substr(0,cnt.innerHTML.length-1) + texto.charAt(i) + "_";
+      if(i >= longitud){
+         clearInterval(timer);
+         cnt.innerHTML = cnt.innerHTML.substr(0,longitud);
+         return true;
+      } else {
+         i++;
+      }},intervalo);
+};
+var texto = "No se que es lo que estes buscando pero no debiste entrar por estos lugares, vete y no regreses";
+
+maquina("texto",texto,100);
+
+</script>
+</body>
