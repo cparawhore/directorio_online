@@ -41,7 +41,7 @@
        <br>
 
 		<div class="alert alert-info" role="alert">
-        Si desea publicar envie un mensaje a <strong>directoriobarranca@gmail.com</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        Si desea publicar envie un mensaje a <strong>directorionortechico@gmail.com</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
       </div>
@@ -143,7 +143,7 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 						if(isset($num_page) && $num_page==$i) echo '<li class="active"><a href="/page/'.$i.'">'.$i.'</a></li>';
 						else echo '<li><a href="/page/'.$i.'">'.$i.'</a></li>';
 					}
-                    if((int)$num_page!=$ultimaPagina) echo '<li><a href="/page/'.($num_page+1).'"">Pagina siguiente</a></li>';
+                    if((int)$num_page!=$ultimaPagina) echo '<li><a href="/page/'.($num_page+1).'"">Pagina siguiente <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>';
 				?>
 				</ul>
 			</center><?php } ?>
@@ -174,9 +174,8 @@ glyphicon glyphicon-remove" aria-hidden="true"></span> Reportar</span></h4>
 </body>
 <?php
 include ("includes/footer.php");
-	?><script>
-
-
+	?>
+  <script>
 
 $(document).ready(function() {
     eliminarBotones();
@@ -189,61 +188,5 @@ $(document).ready(function() {
 	});
 
 })
-
-
-
-function readCookie(name) {
-
-  var nameEQ = name + "="; 
-  var ca = document.cookie.split(';');
-
-  for(var i=0;i < ca.length;i++) {
-
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) {
-      return decodeURIComponent( c.substring(nameEQ.length,c.length) );
-    }
-
-  }
-
-  return "";
-}
-
-function eliminarBotones() {
-
-  var nameEQ = "reps="; 
-  var ca = document.cookie.split(';');
-
-  for(var i=0;i < ca.length;i++) {
-
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) {
-      /*return*/ var str = decodeURIComponent( c.substring(nameEQ.length,c.length) );
-      var dato = str.split(" ");
-      for (var i=0; i<str.length; i++) { $("#"+dato[i]).remove() }
-    }
-
-  }
-
-  return "";
-}
-
-function realizaProceso(id){
-        $.ajax({                
-                url:   'ajax/updateVote.php?id='+id,
-                type:  'post',
-                success:  function (response) {     
-                    $("#report"+id).remove();
-                    var d = new Date();
-                    d.setTime(d.getTime() + (60*24*60*60*1000));
-                    var expires = "expires="+ d.toUTCString();
-                    document.cookie = "reps=" + readCookie("reps") + encodeURIComponent( " report"+id );
-                    //document.cookie = expires;              
-                }
-        });
-}
-
 </script>
 </html>
