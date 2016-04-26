@@ -1,7 +1,7 @@
 <?php
     
         
-    if(count($inmuebles)==0) {?><script type="text/javascript">window.location="http://directoriobarranca.azurewebsites.net";</script>
+    if(count($inmuebles)==0) {?><script type="text/javascript">window.location="http://directorionortechico.azurewebsites.net";</script>
     
 
 	<?php } include ("includes/header.php");?>
