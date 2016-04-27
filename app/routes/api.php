@@ -198,7 +198,8 @@ $app->get('/page/:id', function ($id) use ($app){
 		$inmuebles = $dbh->fetchAll();
 		$numero = $count->fetch();
 		$connection = null;
-    	$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0], 'num_page'=> $id ));
+		if(!is_string($id)) $app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0], 'num_page'=> $id ));
+		else ob_start();header("Location:/page/0");exit();
 	}
 	catch(PDOException $e)
 	{
