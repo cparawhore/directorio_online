@@ -82,7 +82,7 @@ function eliminarBotones() {
 
 function realizaProceso(id){
         $.ajax({                
-                url:   'ajax/updateVote.php?id='+id,
+                url:   '/ajax/updateVote.php?id='+id,
                 type:  'post',
                 success:  function (response) {     
                     $("#report"+id).remove();
