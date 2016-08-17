@@ -1,10 +1,10 @@
 <?php
     
         
-    if(count($inmuebles)==0) {?><script type="text/javascript">window.location="http://directorionortechico.azurewebsites.net";</script>
+    //if(count($inmuebles)==0) {?><!--script type="text/javascript">window.location="http://directorionortechico.azurewebsites.net";</script-->
     
 
-	<?php } include ("includes/header.php");?>
+	<?php /*} */include ("includes/header.php");?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

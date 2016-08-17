@@ -191,14 +191,14 @@ $app->get('/page/:id', function ($id) use ($app){
     try{
 		$connection = getConnection();
 		$desde = $id*8;
-		$dbh = $connection->prepare("SELECT *,datediff(curdate(), created_at) as diferencia FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY) ORDER BY ID DESC LIMIT ".$desde.",8");// WHERE enabled=1 AND curdate() - created_at < 60 LIMIT 8");
-		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 60 DAY)");
+		$dbh = $connection->prepare("SELECT *,datediff(curdate(), created_at) as diferencia FROM inmuebles ORDER BY ID DESC LIMIT ".$desde.",8");// WHERE enabled=1 AND curdate() - created_at < 60 LIMIT 8");
+		$count = $connection->prepare("SELECT COUNT(*) FROM inmuebles");
 		$dbh->execute();
 		$count->execute();
 		$inmuebles = $dbh->fetchAll();
 		$numero = $count->fetch();
 		$connection = null;
-		if(!is_string($id)) {
+		if(!is_string($id) || $id>$numero[0]/8) {
 		ob_start();header("Location:/page/0");exit();
 		}
 		else {$app->render('inmueble.php', array('inmuebles'=> $inmuebles , 'var'=> $numero[0], 'num_page'=> $id ));}
