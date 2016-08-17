@@ -3,9 +3,9 @@
 function getConnection()
 {
 	try{
-		$db_username = "root";
-		$db_password = "";
-		$connection = new PDO("mysql:host=localhost;dbname=dbarranca", $db_username, $db_password);
+		$db_username = "b6a0edcc69e543";
+		$db_password = "1fac6bca";
+		$connection = new PDO("mysql:host=us-cdbr-azure-central-a.cloudapp.net;dbname=dbarranca", $db_username, $db_password);
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOException $e)
